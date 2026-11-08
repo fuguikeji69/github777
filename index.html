@@ -1,240 +1,1212 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<html>
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="screen-orientation" content="portrait">
-    <meta name="full-screen" content="yes">
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="browsermode" content="application">
-    <meta name="x5-fullscreen" content="true">
-    <meta name="x5-orientation" content="portrait">
-    <meta name="x5-page-mode" content="app">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui,viewport-fit=cover" />
-    <meta name="apple-mobile-web-app-title" content="名爵" />
-    <meta name="apple-touch-fullscreen" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta content="email=no" name="format-detection">
-    <title>名爵</title>
-    <link rel="stylesheet" href="./static/css/base.css?_=20220429105826" />
-    <link rel="stylesheet" href="./static/css/style.css?_=20220429105826" />
-    <style>
-        .copyright {
-            text-align: center;
-            padding: 15px 0;
-            font-size: 12px;
-            color: #999;
-            border-top: 1px solid #eee;
-            margin-top: 20px;
-            background-color: #f9f9f9;
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="./skin/vue.global.prod.3.4.27.js"></script>
+    <link rel="stylesheet" href="./skin/style.css">
+    <link rel="stylesheet" href="./skin/style_icon.css">
+    <link rel="stylesheet" href="./skin/index.css">
+    <script src="./skin/nutui.umd.4.3.8.js"></script>
+    <title>兴胜娱乐</title>
+    <meta name="keywords" content="兴胜娱乐：十年老平台，信誉保障、福利优厚、优质服务，兴胜娱乐长期招收实力代理、合作伙伴，共同携手创造辉煌！">
+    <meta name="description" content="兴胜娱乐，您值得信任的集团品牌">
+   <style>
+        /* 深海蓝色背景 */
+        html {
+            background: linear-gradient(180deg, #0a1628 0%, #1a3a5c 30%, #0d2137 70%, #071220 100%) !important;
+            min-height: 100vh;
         }
-
-        /* 添加房间号样式 */
-
-        .room-number {
-            text-align: center;
-            margin: 0px 0;
-            font-size: 30px;
-            font-weight: bold;
-            color: #333;
+        
+        body {
+            background: linear-gradient(180deg, #0a1628 0%, #1a3a5c 30%, #0d2137 70%, #071220 100%) !important;
+            background-attachment: fixed !important;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
-
-        .room-number .number {
-            font-size: 38px;
-            color: #e74c3c;
-            font-weight: 900;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(45deg, #e74c3c, #c0392b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            padding: 0 5px;
-            border-radius: 5px;
-            display: inline-block;
-            transform: scale(1.1);
+        
+        /* ===== 海洋生物全部螺旋游动效果 ===== */
+        
+        .ocean-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
         }
+        
+        /* 从左往右游的鱼 - 螺旋 */
+        .fish-left {
+            position: absolute;
+            font-size: 28px;
+            animation: swim-spiral-right linear infinite;
+            will-change: transform;
+            filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.5));
+        }
+        
+        .fish-left:nth-child(1) { top: 10%; animation-duration: 14s; animation-delay: 0s; }
+        .fish-left:nth-child(2) { top: 28%; animation-duration: 17s; animation-delay: 2s; font-size: 32px; }
+        .fish-left:nth-child(3) { top: 48%; animation-duration: 12s; animation-delay: 5s; }
+        .fish-left:nth-child(4) { top: 65%; animation-duration: 15s; animation-delay: 1s; font-size: 24px; }
+        .fish-left:nth-child(5) { top: 82%; animation-duration: 13s; animation-delay: 7s; }
+        
+        @keyframes swim-spiral-right {
+            0% { transform: translateX(-100px) translateY(0) rotate(0deg) scaleX(1); opacity: 0; }
+            5% { opacity: 1; }
+            25% { transform: translateX(25vw) translateY(-50px) rotate(180deg) scaleX(1); }
+            50% { transform: translateX(50vw) translateY(0) rotate(360deg) scaleX(1); }
+            75% { transform: translateX(75vw) translateY(50px) rotate(540deg) scaleX(1); }
+            95% { opacity: 1; }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(0) rotate(720deg) scaleX(1); opacity: 0; }
+        }
+        
+        /* 从右往左游的鱼 - 螺旋 */
+        .fish-right {
+            position: absolute;
+            font-size: 28px;
+            animation: swim-spiral-left linear infinite;
+            will-change: transform;
+            filter: drop-shadow(0 0 8px rgba(100, 200, 255, 0.5));
+        }
+        
+        .fish-right:nth-child(6) { top: 18%; animation-duration: 16s; animation-delay: 3s; }
+        .fish-right:nth-child(7) { top: 38%; animation-duration: 13s; animation-delay: 6s; font-size: 34px; }
+        .fish-right:nth-child(8) { top: 55%; animation-duration: 18s; animation-delay: 0s; }
+        .fish-right:nth-child(9) { top: 75%; animation-duration: 14s; animation-delay: 4s; font-size: 26px; }
+        
+        @keyframes swim-spiral-left {
+            0% { transform: translateX(calc(100vw + 100px)) translateY(0) rotate(0deg) scaleX(-1); opacity: 0; }
+            5% { opacity: 1; }
+            25% { transform: translateX(75vw) translateY(60px) rotate(-180deg) scaleX(-1); }
+            50% { transform: translateX(50vw) translateY(0) rotate(-360deg) scaleX(-1); }
+            75% { transform: translateX(25vw) translateY(-60px) rotate(-540deg) scaleX(-1); }
+            95% { opacity: 1; }
+            100% { transform: translateX(-100px) translateY(0) rotate(-720deg) scaleX(-1); opacity: 0; }
+        }
+        
+        /* 螺旋游动的小鱼 - 大螺旋 */
+        .fish-spiral {
+            position: absolute;
+            font-size: 22px;
+            animation: swim-big-spiral linear infinite;
+            will-change: transform;
+            filter: drop-shadow(0 0 6px rgba(150, 220, 255, 0.6));
+        }
+        
+        .fish-spiral:nth-child(10) { top: 20%; animation-duration: 20s; animation-delay: 1s; }
+        .fish-spiral:nth-child(11) { top: 60%; animation-duration: 22s; animation-delay: 8s; }
+        
+        @keyframes swim-big-spiral {
+            0% { transform: translateX(-100px) translateY(0) rotate(0deg) scaleX(1); opacity: 0; }
+            10% { opacity: 1; }
+            25% { transform: translateX(25vw) translateY(-80px) rotate(270deg) scaleX(1); }
+            50% { transform: translateX(50vw) translateY(0) rotate(540deg) scaleX(1); }
+            75% { transform: translateX(75vw) translateY(80px) rotate(810deg) scaleX(1); }
+            90% { opacity: 1; }
+            100% { transform: translateX(calc(100vw + 100px)) translateY(0) rotate(1080deg) scaleX(1); opacity: 0; }
+        }
+        
+        /* 水母 - 螺旋上升 */
+        .jellyfish {
+            position: absolute;
+            font-size: 26px;
+            animation: jelly-spiral ease-in-out infinite;
+            will-change: transform;
+            filter: drop-shadow(0 0 10px rgba(200, 150, 255, 0.5));
+        }
+        
+        .jellyfish:nth-child(12) { left: 15%; top: 60%; animation-duration: 10s; animation-delay: 0s; }
+        .jellyfish:nth-child(13) { left: 75%; top: 70%; animation-duration: 12s; animation-delay: 2s; }
+        
+        @keyframes jelly-spiral {
+            0% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+            25% { transform: translateY(-40vh) translateX(30px) rotate(90deg) scale(1.1); }
+            50% { transform: translateY(-20vh) translateX(-20px) rotate(180deg) scale(0.95); }
+            75% { transform: translateY(-60vh) translateX(25px) rotate(270deg) scale(1.05); }
+            100% { transform: translateY(-80vh) translateX(0) rotate(360deg) scale(1); }
+        }
+        
+        /* 海草 - 螺旋摇摆 */
+        .seaweed-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .seaweed {
+            position: absolute;
+            bottom: 0;
+            font-size: 40px;
+            animation: seaweed-spiral ease-in-out infinite;
+            transform-origin: bottom center;
+            will-change: transform;
+            filter: drop-shadow(0 0 5px rgba(50, 150, 100, 0.5));
+        }
+        
+        .seaweed:nth-child(1) { left: 5%; animation-duration: 5s; animation-delay: 0s; font-size: 35px; }
+        .seaweed:nth-child(2) { left: 18%; animation-duration: 6s; animation-delay: 0.8s; }
+        .seaweed:nth-child(3) { left: 32%; animation-duration: 5.5s; animation-delay: 1.5s; font-size: 30px; }
+        .seaweed:nth-child(4) { left: 48%; animation-duration: 6.5s; animation-delay: 0.3s; }
+        .seaweed:nth-child(5) { left: 62%; animation-duration: 5.8s; animation-delay: 2.2s; font-size: 38px; }
+        .seaweed:nth-child(6) { left: 78%; animation-duration: 6.2s; animation-delay: 1s; }
+        .seaweed:nth-child(7) { left: 92%; animation-duration: 5.2s; animation-delay: 1.8s; font-size: 32px; }
+        
+        @keyframes seaweed-spiral {
+            0%, 100% { transform: rotate(-15deg) translateX(0) scaleY(1); }
+            25% { transform: rotate(0deg) translateX(10px) scaleY(1.08); }
+            50% { transform: rotate(18deg) translateX(5px) scaleY(0.92); }
+            75% { transform: rotate(5deg) translateX(-8px) scaleY(1.05); }
+        }
+        
+        /* 气泡 - 螺旋上升 */
+        .bubbles {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .bubble {
+            position: absolute;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(100,200,255,0.3));
+            border-radius: 50%;
+            animation: bubble-spiral linear infinite;
+            will-change: transform, opacity;
+        }
+        
+        .bubble:nth-child(1) { width: 8px; height: 8px; left: 12%; animation-duration: 10s; animation-delay: 0s; }
+        .bubble:nth-child(2) { width: 12px; height: 12px; left: 28%; animation-duration: 12s; animation-delay: 2s; }
+        .bubble:nth-child(3) { width: 6px; height: 6px; left: 45%; animation-duration: 9s; animation-delay: 4s; }
+        .bubble:nth-child(4) { width: 10px; height: 10px; left: 62%; animation-duration: 11s; animation-delay: 1s; }
+        .bubble:nth-child(5) { width: 7px; height: 7px; left: 78%; animation-duration: 10.5s; animation-delay: 5s; }
+        .bubble:nth-child(6) { width: 9px; height: 9px; left: 88%; animation-duration: 13s; animation-delay: 3s; }
+        
+        @keyframes bubble-spiral {
+            0% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); opacity: 0; }
+            10% { opacity: 0.6; }
+            25% { transform: translateY(-25vh) translateX(20px) rotate(90deg) scale(1.15); }
+            50% { transform: translateY(-50vh) translateX(-15px) rotate(180deg) scale(0.9); }
+            75% { transform: translateY(-75vh) translateX(18px) rotate(270deg) scale(1.1); }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(-100vh) translateX(0) rotate(360deg) scale(0.5); opacity: 0; }
+        }
+        
+        /* 海星 - 螺旋漂浮 */
+        .starfish {
+            position: absolute;
+            font-size: 24px;
+            animation: starfish-spiral ease-in-out infinite;
+            will-change: transform;
+            filter: drop-shadow(0 0 5px rgba(255, 180, 150, 0.5));
+        }
+        
+        .starfish:nth-child(14) { left: 8%; top: 70%; animation-duration: 10s; animation-delay: 0s; }
+        .starfish:nth-child(15) { right: 12%; top: 25%; animation-duration: 12s; animation-delay: 3s; }
+        
+        @keyframes starfish-spiral {
+            0% { transform: translateY(0) translateX(0) rotate(0deg) scale(1); }
+            25% { transform: translateY(-30px) translateX(20px) rotate(90deg) scale(1.15); }
+            50% { transform: translateY(-15px) translateX(-15px) rotate(180deg) scale(0.9); }
+            75% { transform: translateY(-35px) translateX(10px) rotate(270deg) scale(1.08); }
+            100% { transform: translateY(0) translateX(0) rotate(360deg) scale(1); }
+        }
+        
+        /* 螃蟹 - 螺旋爬行 */
+        .crab {
+            position: absolute;
+            font-size: 26px;
+            animation: crab-spiral linear infinite;
+            will-change: transform;
+            filter: drop-shadow(0 0 5px rgba(255, 150, 100, 0.4));
+        }
+        
+        .crab:nth-child(16) { bottom: 12%; animation-duration: 28s; animation-delay: 0s; }
+        
+        @keyframes crab-spiral {
+            0% { transform: translateX(-50px) translateY(0) rotate(0deg) scaleX(1); }
+            12% { transform: translateX(20vw) translateY(-25px) rotate(45deg) scaleX(1); }
+            25% { transform: translateX(40vw) translateY(0) rotate(90deg) scaleX(1); }
+            37% { transform: translateX(60vw) translateY(25px) rotate(135deg) scaleX(1); }
+            48% { transform: translateX(calc(100vw + 50px)) translateY(0) rotate(180deg) scaleX(1); }
+            50% { transform: translateX(calc(100vw + 50px)) translateY(0) rotate(180deg) scaleX(-1); }
+            62% { transform: translateX(80vw) translateY(-25px) rotate(135deg) scaleX(-1); }
+            75% { transform: translateX(60vw) translateY(0) rotate(90deg) scaleX(-1); }
+            87% { transform: translateX(40vw) translateY(25px) rotate(45deg) scaleX(-1); }
+            100% { transform: translateX(-50px) translateY(0) rotate(0deg) scaleX(-1); }
+        }
+        
+        /* 海底光晕 */
+        .ocean-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 50% 100%, rgba(0,150,200,0.15) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* 水面光效 */
+        .surface-light {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(180deg, rgba(100,200,255,0.1) 0%, transparent 100%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* ===== 页面结构 ===== */
+        
+        .page {
+            background: transparent !important;
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+        }
+        
+        /* app-item 使用 bg3.png */
+        .page .cont-box .app-list .app-item {
+            background: url("./images/bg3.webp") no-repeat !important;
+            background-size: 100% 100% !important;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page .cont-box .notice-bar {
+            background: linear-gradient(90deg, #1a3a5c 0%, #0d2137 100%) !important;
+            border: 1px solid rgba(100,200,255,0.3);
+            box-shadow: 0 0 15px rgba(100,200,255,0.2);
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* 快捷入口图片圆角 */
+        .page .cont-box .app-box a {
+            border-radius: 12px;
+            overflow: hidden;
+            display: block;
+            box-shadow: 0 0 15px rgba(100,200,255,0.3);
+            transition: all 0.3s;
+        }
+        .page .cont-box .app-box a:hover {
+            box-shadow: 0 0 25px rgba(100,200,255,0.5);
+            transform: scale(1.05);
+        }
+        .page .cont-box .app-box a img {
+            border-radius: 12px;
+            display: block;
+        }
+        
+        /* 文字颜色 - 海洋蓝 */
+        .page .cont-box .app-list .app-item .info-box .app-info .top-info .info .name {
+            color: #c5e8ff !important;
+            text-shadow: 0 0 10px rgba(100,200,255,0.3);
+        }
+        .page .cont-box .app-list .app-item .info-box .app-info .top-info .info .link {
+            color: #64c8ff !important;
+        }
+        
+        /* 下载按钮蓝色效果 */
+.download-text {
+font-weight: 900;
+/* 纵向上下流金：top浅金→中间亮黄金→底部暗鎏金 */
+background: linear-gradient(to bottom, #fff8d2, #ffdd70, #c89c3c);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+-webkit-text-fill-color: transparent;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+        
+        
+        /* 原有样式 */
+        .lang_radio { display: none; }
+        .lang_radio_img { vertical-align: unset !important; width: 13px !important; height: 13px !important; margin-top: 0px !important; cursor: pointer; margin-right: 3px !important; margin-top: 4px !important; display: inline; min-height: unset !important; min-width: unset !important; }
+        .marquee-container { width: 100%; overflow: hidden; white-space: nowrap; box-sizing: border-box; position: relative; }
+        .marquee { display: inline-block; padding-left: 10%; animation: marquee 25s linear infinite; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+        .responsive-img { max-width: 100%; height: auto; }
+        
+        /* 客服链接 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { min-height: 100vh; position: relative; overflow-x: hidden; font-family: Arial, "Microsoft Yahei", sans-serif; }
+        .top-links { position: absolute; top: 3%; right: 3%; display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; max-width: 40%; }
+        .bottom-link { position: fixed; top: 50%; right: 20px; transform: translateY(-50%); animation: float 2s ease-in-out infinite; z-index: 1000; }
+        .image-link { display: block; transition: all 0.3s ease; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); }
+        .image-link img { width: 150px; height: auto; border-radius: 8px; }
+        .image-link:hover { transform: scale(1.1); filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4)); }
+        @keyframes float { 0%, 100% { transform: translateY(-50%) translateY(0); } 50% { transform: translateY(-50%) translateY(-10px); } }
+        @media (max-width: 768px) { .top-links { gap: 10px; max-width: 60%; } .bottom-link { right: 10px; } .bottom-link img { width: 100px !important; } }
+        @media (min-width: 1200px) { .top-links { gap: 20px; } }
     </style>
+</head>
+<body>
+    <!-- 海洋背景（增强版） -->
+    <div class="ocean-container">
+        <!-- 从左往右游 -->
+        <div class="fish-left">🐠</div>
+        <div class="fish-left">🐟</div>
+        <div class="fish-left">🐡</div>
+        <div class="fish-left">🦑</div>
+        <div class="fish-left">🐙</div>
+        <!-- 从右往左游 -->
+        <div class="fish-right">🦈</div>
+        <div class="fish-right">🐬</div>
+        <div class="fish-right">🐳</div>
+        <div class="fish-right">🦭</div>
+        <!-- 螺旋游动 -->
+        <div class="fish-spiral">🐠</div>
+        <div class="fish-spiral">🐟</div>
+        <!-- 漂浮水母 -->
+        <div class="jellyfish">🪼</div>
+        <div class="jellyfish">🪼</div>
+        <!-- 海星 -->
+        <div class="starfish">⭐</div>
+        <div class="starfish">⭐</div>
+        <!-- 螃蟹 -->
+        <div class="crab">🦀</div>
+    </div>
+    
+    <!-- 海草 -->
+    <div class="seaweed-container">
+        <div class="seaweed">🌿</div>
+        <div class="seaweed">🌱</div>
+        <div class="seaweed">🌿</div>
+        <div class="seaweed">🌱</div>
+        <div class="seaweed">🌿</div>
+        <div class="seaweed">🌱</div>
+        <div class="seaweed">🌿</div>
+    </div>
+    
+    <!-- 气泡 -->
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+    
+    <!-- 光效 -->
+    <div class="ocean-glow"></div>
+    <div class="surface-light"></div>
+
+
+
 </head>
 
 <body>
-    <div class="loading-mask">
-        <div class="loading-box">
-            <div class="loadingio-spinner-ellipsis">
-                <div class="ldio">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
+    <div id="app" class="page" data-v-app="">
+        <div class="page-cont">
+            <div class="head-bar">
             </div>
-            <span>正在加载中...</span>
-        </div>
-    </div>
-    <div class="content">
-        <img src="./static/images/banner.png?_=20220429105827" class="banner">
 
-        <!-- 添加房间号 -->
-        <div class="room-number">
-            名爵H5<br><span class="number">一路长虹</span>
-        </div>
-
-        <div class="con1">
-            <a class="item" target="_blank" href="https://iosweb.mjweb205.xyz">
-                <div class="flexcon">
-                    <span class="text1">线路一</span>
-                </div>
-                <div class="flexcon">
-                    <span class="speed"></span>
-                    <span class="icon"></span>
-                </div>
-            </a>
-            <a class="item" target="_blank" href="https://iosweb.mjweb206.xyz">
-                <div class="flexcon">
-                    <span class="text1">线路二</span>
-                </div>
-                <div class="flexcon">
-                    <span class="speed"></span>
-                    <span class="icon"></span>
-                </div>
-            </a>
-            <a class="item" target="_blank" href="https://ios-h5new.wokekj.com">
-                <div class="flexcon">
-                    <span class="text1">线路三</span>
-                </div>
-                <div class="flexcon">
-                    <span class="speed"></span>
-                    <span class="icon"></span>
-                </div>
-            </a>
-            <a class="item" target="_blank" href="https://iosweb.mjweb207.xyz">
-                <div class="flexcon">
-                    <span class="text1">线路四</span>
-                </div>
-                <div class="flexcon">
-                    <span class="speed"></span>
-                    <span class="icon"></span>
-                </div>
-            </a>
-
-            <a class="item" target="_blank" href="https://mjweb.mj9998.com">
-                <div class="flexcon">
-                    <span class="text1">线路五</span>
-                </div>
-                <div class="flexcon">
-                    <span class="speed"></span>
-                    <span class="icon"></span>
-                </div>
-            </a>
-
-            <a class="item" target="_blank" href="https://mjios.mj9998.com">
-                <div class="flexcon">
-                    <span class="text1">线路六</span>
-                </div>
-                <div class="flexcon">
-                    <span class="speed"></span>
-                    <span class="icon"></span>
-                </div>
-            </a>
-
-            <a class="item" target="_blank" href="https://wx.mj9998.com">
-                <div class="flexcon">
-                    <span class="text1">线路七</span>
-                </div>
-                <div class="flexcon">
-                    <span class="speed"></span>
-                    <span class="icon"></span>
-                </div>
-            </a>
-        </div>
-        <div class="home-btn-cont clearfix">
-            <div class="home-btn">
-                <a href="javascript:;" onclick="window.location.reload()">重新检测</a>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        &copy; 2026 名爵 版权所有<br>
-    </div>
-    <!--     <div class="btn-con">
-      <a href="#" id="loginBtn" class="btnItem" target="_blank">点击登录</a>
-      <a href="" class="btnItem">重新加载</a>
-    </div> -->
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"9085d4c7e0fa45b1881000ae0bfb9368","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
-        crossorigin="anonymous"></script>
-</body>
-<script src="./static/js/jquery-1.11.3.min.js?_=20220429105824"></script>
-<script src="./static/js/code/index.js"></script>
-<script>
-    !(function(e, t) {
-        var n = t.documentElement,
-            d = e.devicePixelRatio || 1;
-
-        function i() {
-            var e = n.clientWidth / 3.75;
-            n.style.fontSize = e + "px";
+            <img src="./static/upload/image/20250417/1744882140152519.webp"" class="responsive-img">
+                          <style>
+        /* ========== 在线人数显示样式 ========== */
+        .online-counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 15px auto;
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.1));
+            border: 1px solid rgba(255,215,0,0.5);
+            border-radius: 20px;
+            padding: 8px 20px;
+            backdrop-filter: blur(10px);
+            animation: counter-pulse 2s ease-in-out infinite;
         }
-        if (
-            ((function e() {
-                    t.body ?
-                        (t.body.style.fontSize = "16px") :
-                        t.addEventListener("DOMContentLoaded", e);
-                })(),
-                i(),
-                e.addEventListener("resize", i),
-                e.addEventListener("pageshow", function(e) {
-                    e.persisted && i();
-                }),
-                2 <= d)
-        ) {
-            var o = t.createElement("body"),
-                a = t.createElement("div");
-            (a.style.border = ".5px solid transparent"),
-            o.appendChild(a),
-                n.appendChild(o),
-                1 === a.offsetHeight && n.classList.add("hairlines"),
-                n.removeChild(o);
+        
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: dot-blink 1s ease-in-out infinite;
+            box-shadow: 0 0 10px #00ff00;
         }
-    })(window, document);
-    $(document).ready(function() {
-        $('.content').show()
-        $('.con1').on('click', '.item', function() {
-            $(this).addClass('active').siblings().removeClass('active')
-            // $('.home-btn a').attr('href', $(this).attr('data-url'));
-        })
-        $('.home-btn-cont').on('click', '.home-btn a', function() {
-            if ($('.item.active').length > 0) {
+        
+        .online-text {
+            color: #ffd700;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .online-number {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .online-number.jump {
+            animation: numberJump 0.4s ease-out;
+            color: #00ff00;
+            text-shadow: 0 0 20px #00ff00;
+        }
+        
+        @keyframes numberJump {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes dot-blink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        
+        @keyframes counter-pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(255,215,0,0.3); }
+            50% { box-shadow: 0 0 20px rgba(255,215,0,0.6); }
+        }
+        
+        /* ========== 实时提现（奖励墙）样式 ========== */
+        .reward-wall {
+            max-width: 320px;
+            margin: 15px auto 0;
+            background: linear-gradient(135deg, rgba(255,215,0,0.15) 0%, rgba(255,140,0,0.1) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 12px;
+            padding: 10px 15px;
+            box-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.2),
+                inset 0 0 20px rgba(255, 215, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .reward-wall-title {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .reward-scroll-container {
+            height: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .reward-scroll-content {
+            animation: scroll-up 10s linear infinite;
+        }
+        
+        .reward-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 0;
+            white-space: nowrap;
+            font-size: 12px;
+            border-bottom: 1px dashed rgba(255, 215, 0, 0.2);
+        }
+        
+        .reward-item:last-child {
+            border-bottom: none;
+        }
+        
+        .reward-icon-small {
+            font-size: 14px;
+        }
+        
+        .reward-user {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+        
+        .reward-action {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .reward-money {
+            color: #ff6b6b;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+        }
+        
+        @keyframes scroll-up {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        
+        /* 页面基础样式 */
 
-            } else {
-                alert('测速中')
-                return false
+        
+        h2 {
+            color: #ffd700;
+            margin: 30px 0 15px;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+        
+        .demo-section {
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+a.btn1 {
+  display: inline-block;
+  padding: 3% 3%;
+  text-align: center;
+  text-decoration: none;
+  
+  /* 背景图横向自适应，高度自动 */
+  background-image: url(./images/bg2.webp);
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  
+  border-radius: 6px;
+}
+
+a.btn1 .download-text {
+  color: #fff;
+  font-size: 14px;
+}
+    </style>
+<body>
+   
+
+
+           
+
+            <div class="cont-box" style="margin-top: -18px;">
+
+                <div class="notice-bar">
+                    <img class="img" src="./skin/icon1.webp">
+                    <div class="msg-bar">
+                        <div class="marquee-container">
+                            <div class="marquee" style="font-size: 17px;color: #D7C09D;">
+                                兴胜娱乐：十年老平台，信誉保障、福利优厚、优质服务，兴胜娱乐长期招收实力代理、合作伙伴，共同携手创造辉煌！所有下注订单对接盘口，资金安全！
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                                          <style>
+        /* ========== 在线人数显示样式 ========== */
+        .online-counter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin: 15px auto;
+            background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.1));
+            border: 1px solid rgba(255,215,0,0.5);
+            border-radius: 20px;
+            padding: 8px 20px;
+            backdrop-filter: blur(10px);
+            animation: counter-pulse 2s ease-in-out infinite;
+        }
+        
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: dot-blink 1s ease-in-out infinite;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        
+        .online-text {
+            color: #ffd700;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .online-number {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .online-number.jump {
+            animation: numberJump 0.4s ease-out;
+            color: #00ff00;
+            text-shadow: 0 0 20px #00ff00;
+        }
+        
+        @keyframes numberJump {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.4); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes dot-blink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        
+        @keyframes counter-pulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(255,215,0,0.3); }
+            50% { box-shadow: 0 0 20px rgba(255,215,0,0.6); }
+        }
+        
+        /* ========== 实时提现（奖励墙）样式 ========== */
+        .reward-wall {
+            max-width: 320px;
+            margin: 15px auto 0;
+            background: linear-gradient(135deg, rgba(255,215,0,0.15) 0%, rgba(255,140,0,0.1) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 12px;
+            padding: 10px 15px;
+            box-shadow: 
+                0 0 20px rgba(255, 215, 0, 0.2),
+                inset 0 0 20px rgba(255, 215, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .reward-wall-title {
+            text-align: center;
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        
+        .reward-scroll-container {
+            height: 100px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .reward-scroll-content {
+            animation: scroll-up 10s linear infinite;
+        }
+        
+        .reward-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 0;
+            white-space: nowrap;
+            font-size: 12px;
+            border-bottom: 1px dashed rgba(255, 215, 0, 0.2);
+        }
+        
+        .reward-item:last-child {
+            border-bottom: none;
+        }
+        
+        .reward-icon-small {
+            font-size: 14px;
+        }
+        
+        .reward-user {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+        
+        .reward-action {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .reward-money {
+            color: #ff6b6b;
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(255, 107, 107, 0.5);
+        }
+        
+        @keyframes scroll-up {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        
+        /* 页面基础样式 */
+
+        
+        h2 {
+            color: #ffd700;
+            margin: 30px 0 15px;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+        }
+        
+        .demo-section {
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+a.btn1 {
+  display: inline-block;
+  padding: 3% 3%;
+  text-align: center;
+  text-decoration: none;
+  
+  /* 背景图横向自适应，高度自动 */
+  background-image: url(./images/bg2.webp);
+  background-size: 100% 100%;
+  background-position: center top;
+  background-repeat: no-repeat;
+  
+  border-radius: 6px;
+}
+
+a.btn1 .download-text {
+  color: #fff;
+  font-size: 14px;
+}
+    </style>
+<body>
+    
+    <!-- ========== 1. 在线人数 HTML代码 ========== -->
+    
+        <!-- 在线人数显示 -->
+        <div class="online-counter" id="onlineCounter">
+            <div class="online-dot"></div>
+            <span class="online-text">当前在线</span>
+            <span class="online-number" id="onlineNumber">1277
+			</span>
+        </div>
+    
+    
+    <!-- ========== 2. 实时提现 HTML代码 ========== -->
+    
+ 
+    
+    <!-- ========== JavaScript 功能代码 ========== -->
+    <script>
+        // ========== 在线人数动态更新 ==========
+        let currentOnline = 912;
+        const onlineNumberEl = document.getElementById('onlineNumber');
+        
+        function updateOnlineNumber() {
+            // 随机增减人数（模拟真实波动）
+            const change = Math.floor(Math.random() * 50) - 20;
+            currentOnline += change;
+            // 保持在合理范围
+            if (currentOnline < 800) currentOnline = 800;
+            if (currentOnline > 5000) currentOnline = 5000;
+            
+            // 添加跳动动画
+            onlineNumberEl.classList.add('jump');
+            setTimeout(() => {
+                onlineNumberEl.classList.remove('jump');
+            }, 400);
+            
+            // 格式化数字
+            onlineNumberEl.textContent = currentOnline.toLocaleString();
+        }
+        
+        // 每3秒更新一次在线人数
+        setInterval(updateOnlineNumber, 3000);
+        
+        // ========== 实时提现滚动墙系统 ==========
+        const rewardScrollContent = document.getElementById('rewardScrollContent');
+        const rewardNames = ['张**老板', '李**老板', '王**老板', '刘**老板', '陈**老板', '杨**老板', '赵**老板', '黄**老板', '周**老板', '吴**老板'];
+        const rewardAmounts = ['¥1,888', '¥3,888', '¥5,888', '¥8,888', '¥10,000', '¥18,888', '¥28,888', '¥66,666'];
+        const rewardActions = ['刚提现', '中奖', '充值', '赢得'];
+        
+        function generateRewardItems() {
+            let html = '';
+            // 生成10条数据（5条显示，5条用于循环）
+            for (let i = 0; i < 10; i++) {
+                const randomName = rewardNames[Math.floor(Math.random() * rewardNames.length)];
+                const randomAmount = rewardAmounts[Math.floor(Math.random() * rewardAmounts.length)];
+                const randomAction = rewardActions[Math.floor(Math.random() * rewardActions.length)];
+                html += `
+                    <div class="reward-item">
+                        <span class="reward-icon-small">🎉</span>
+                        <span class="reward-user">${randomName}</span>
+                        <span class="reward-action">${randomAction}</span>
+                        <span class="reward-money">${randomAmount}</span>
+                    </div>
+                `;
             }
-        })
-        // $('.btn-con').hide()
-        // setTimeout(function () {
-        //   $.ajax({
-        //     url: "./biz/getH5DownUrl",
-        //     type: "get",
-        //     async: false,
-        //     dataType: 'json',
-        //     success: function(res) {
-        //       $('.loading-mask').hide()
-        //       $('.btn-con').css('display','flex')
-        //       if (res.data) {
-        //         $('#loginBtn').attr('href', res.data)
-        //       }
-        //     },
-        //     error: function() {
-        //       $('.loading-mask').hide()
-        //       $('.btn-con').css('display','flex')
-        //       $('#loginBtn').attr('href', 'https://web1.2tree.net')
-        //     }
-        //   })
-        // }, 1500)
-    });
-</script>
-<img src="https://wsp188.shop/counter.php?page=worldcup" style="display:none;" alt="">
+            rewardScrollContent.innerHTML = html;
+        }
+        
+        // 初始化生成奖励条目
+        generateRewardItems();
+        
+        // 每5秒更新一条数据
+        function updateRewardItem() {
+            const items = rewardScrollContent.querySelectorAll('.reward-item');
+            const randomIndex = Math.floor(Math.random() * items.length);
+            const randomName = rewardNames[Math.floor(Math.random() * rewardNames.length)];
+            const randomAmount = rewardAmounts[Math.floor(Math.random() * rewardAmounts.length)];
+            const randomAction = rewardActions[Math.floor(Math.random() * rewardActions.length)];
+            
+            items[randomIndex].innerHTML = `
+                <span class="reward-icon-small">🎉</span>
+                <span class="reward-user">${randomName}</span>
+                <span class="reward-action">${randomAction}</span>
+                <span class="reward-money">${randomAmount}</span>
+            `;
+        }
+        
+        setInterval(updateRewardItem, 5000);
+    </script>
+    
+</body>
+                <div class="app-box">
+                    <a href="javascript:;">
+              <img src="./skin/dj1.webp">
+            </a>
+                    <a href="javascript:;">
+              <img src="./skin/6ee70038418c4a5c951fca66db9ed086.webp">
+            </a>
+                    <a href="javascript:;">
+              <img src="./skin/2416b90c812b4668aec2cea16b114e6c.webp">
+            </a>
+                    <a href="javascript:;">
+              <img src="./skin/6af43908668440ee8ff2eaa9f82d08a3.webp">
+            </a>
+                </div>
+                <div class="pay-box">
+                    <img src="./skin/img1.webp">
+                </div>
+                <div class="app-list">
+<div style="text-align:center"><strong class="gold-flow">请点击下载名爵后申请加入房间！<br>如有问题可向网页在线客服询问！</strong></div>
+
+<style>
+/* 黄白交替爆闪 + 字号缩放动画 */
+.flash-bigsmall {
+  font-size: 30px;
+  animation: flashYellowWhite 0.3s infinite alternate, sizeChange 0.4s infinite alternate;
+  font-weight: 900;
+}
+
+/* 黄白颜色闪烁 */
+@keyframes flashYellowWhite {
+  0% { color: #fff; text-shadow: 0 0 8px #fff,0 0 15px #ffdd00; }
+  100% { color: #ffdd00; text-shadow: 0 0 8px #ffdd00,0 0 15px #fff; }
+}
+
+/* 字体忽大忽小缩放 */
+@keyframes sizeChange {
+  0% { transform: scale(0.8); }
+  100% { transform: scale(1.3); }
+}
+</style>
+                    <div class="app-item">
+                        <div class="info-box">
+                            <div class="app-icon">
+                                <img src="./static/upload/image/20250327/1743067939459295.webp" alt="">
+                            </div>
+                            <div class="app-info">
+                                <div class="top-info">
+                                    <div class="info">
+                                        <div class="name">
+                                            名爵 APP   
+                                        </div>
+                                        <div class="name">
+                                            
+                                            <a href="javascript:;" class="gold-flow">
+                          房间:217111
+                        </a>
+                                            <a href="javascript:;">
+                          
+                        </a>
+                                        </div>
+                                    </div>
+                                    <a class="active" href="fl.html">
+                      <img src="./skin/img2.webp" alt="">
+                    </a>
+                                </div>
+                                <div class="label-list">
+                                    <a href="javascript:;" class="label">
+                      澳洲5/10
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      极速赛车
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      极速飞艇
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      极速时时彩
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      重庆时时彩
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      幸运飞艇
+                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-box">
+                            <a class="btn" href="#" id="link19">
+                  <img src="./skin/icon6.webp">
+                  <span class="download-text">
+                    下载APP
+                  </span>
+                </a>
+                            <a class="btn" href="#" id="kefu19">
+                  <img src="./skin/icon7.webp">
+                  <span class="download-text">
+                    在线客服
+                  </span>
+                </a>
+                        </div>
+                    </div>
+                    
+                    <div id="aaa19" style="display: none;">
+                        <view class="nut-overlay" style="transition-duration: 0.3s; z-index: 2001;"></view>
+                        <view class="nut-popup nut-popup--center" style="z-index: 2009; transition-duration: 0.3s;">
+                            <div class="dailog-popup download">
+                                <div class="close" id="guanbi19"></div>
+                                <div class="title"></div>
+                                <div class="line"></div>
+                                <div class="btn-list"><a class="btn" href="https://bv02.cc/mjpg1xz.html"><img src="./images/icon9.webp" alt=""><span class="download-text"> 名爵 APP苹果官方下载</span></a><a class="btn" href="tzmjxz.html"><img src="./images/icon10.webp" alt=""><span class="download-text">  名爵 APP安卓官方下载</span></a><a class="btn" href="https://mjweb.xyz"><img src="./images/icon10.webp" alt=""><span class="download-text">  名爵 通用H5网页登录</span></a>
+                               </div>
+                            </div>
+                        </view>
+                    </div>
+                    <script>
+                        const link19 = document.getElementById('link19');
+                        const aaa19 = document.getElementById('aaa19');
+                        link19.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            aaa19.style.display = 'block';
+                        });
+                        const closeButton19 = document.getElementById('guanbi19');
+                        const content19 = document.getElementById('aaa19');
+                        closeButton19.addEventListener('click', function() {
+                            content19.style.display = 'none';
+                        });
+                    </script>
+                    <div id="kefudiv19" style="display: none;">
+                        <view class="nut-overlay" style="transition-duration: 0.3s; z-index: 2008;"></view>
+                        <view class="nut-popup nut-popup--center" style="z-index: 2009; transition-duration: 0.3s;">
+                            <div class="dailog-popup kf" style="background: url(./skin/bg4s.webp) 0% 0% / 100% 100% no-repeat; position: relative;">
+                                <div class="close" id="guanbib19"></div>
+                                <div class="title"></div>
+                                <div class="line"></div>
+                                <div class="kf-list"><a class="kf-item" href="https://td1888.xyz/mj111/" target="_blank"><img class="icon1" src="./skin/0544aa35b27947c89122b31183d19d04.webp" alt=""><div class="cont"><p class="download-text">在线客服</p><p class="download-text">快速、便捷、及时提供沟通～</p></div><img class="icon2" src="./skin/icon14.webp" alt=""></a>
+                                    <a
+                                        class="kf-item" href="javascript:;"><img class="icon1" src="./skin/2a33227e485644ec9c723710b4847416.webp" alt="">
+                                        <div class="cont">
+                                            <p class="download-text"></p>
+                                            <p class="download-text">进入房间联系在线客服～</p>
+                                        </div><img class="icon2" src="./skin/icon15.webp"></a>
+                                </div>
+                            </div>
+                        </view>
+                    </div>
+                    <script>
+                        const kefu19 = document.getElementById('kefu19');
+                        const kefudiv19 = document.getElementById('kefudiv19');
+                        kefu19.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            kefudiv19.style.display = 'block';
+                        });
+                        const closeButtona19 = document.getElementById('guanbib19');
+                        const contenta19 = document.getElementById('kefudiv19');
+                        closeButtona19.addEventListener('click', function() {
+                            contenta19.style.display = 'none';
+                        });
+                    </script>
+                 
+              <style>
+.gold-flow {
+    display: inline-block;
+    background: linear-gradient(90deg, #8c6239, #e6c86e, #fff8c0, #e6c86e, #8c6239);
+    background-size: 200% auto;
+    /* 双前缀补齐，兼容所有浏览器 */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: goldShine 2s linear infinite;
+    text-decoration: none;
+}
+@keyframes goldShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+</style>
+
+
+                     <div class="app-item">
+                        <div class="info-box">
+                            <div class="app-icon">
+                                <img src="./static/upload/image/20250327/17430652447927361.png" alt="">
+                            </div>
+                            <div class="app-info">
+                                <div class="top-info">
+                                    <div class="info">
+                                        <div class="name">
+                                            午夜福利
+                                        </div>
+                                        <div class="link">
+                                            <a href="javascript:;">
+                          
+                        </a>
+                                            <a href="javascript:;">
+                          点击进入午夜福利
+                        </a>
+                                        </div>
+                                    </div>
+                               <a class="active" href="fl.html">
+                      <img src="./skin/img2.webp" alt="">
+                    </a>
+                                </div>
+                                <div class="label-list">
+                                    <a href="javascript:;" class="label">
+                      澳洲幸运5
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      极速赛车
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      极速飞艇
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      极速时时彩
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      澳洲幸运10
+                    </a>
+                                    <a href="javascript:;" class="label">
+                      幸运飞艇
+                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-box">
+                            <a class="btn" href="#" id="link22">
+                  <img src="./skin/icon15.webp">
+                  <span class="download-text">
+                   进入午夜福利
+                  </span>
+                </a>
+                            <a class="btn" href="#" id="kefu22">
+                  <img src="./skin/icon7.webp">
+                  <span class="download-text">
+                    在线客服
+                  </span>
+                </a>
+                        </div>
+                    </div>
+                    <div id="aaa22" style="display: none;">
+                        <view class="nut-overlay" style="transition-duration: 0.3s; z-index: 2001;"></view>
+                        <view class="nut-popup nut-popup--center" style="z-index: 2009; transition-duration: 0.3s;">
+                            <div class="dailog-popup download">
+                                <div class="close" id="guanbi22"></div>
+                                <div class="title"></div>
+                                <div class="line"></div>
+                                <div class="btn-list"><a class="btn" href="https://1689437.com/"><img src="./images/icon9.webp" alt=""><span>  168 开奖网苹果官方下载</span></a><a class="btn" href="https://1689437.com/"><img src="./images/icon10.webp" alt=""><span>  168 开奖网安卓官方下载</span></a>
+                                    <a class="btn" id="apppg22"><img src="./images/icon11.webp" alt=""><span>  168 开奖网苹果安装教程</span></a><a class="btn" id="anzhuo22"><img src="./images/icon11.webp" alt=""><span>  168 开奖网安卓安装教程</span></a></div>
+                            </div>
+                        </view>
+                    </div>
+                    <script>
+                        const aaa22 = document.getElementById('aaa22');
+                        const link22 = document.getElementById('link22');
+                        if (link22) {
+                            link22.addEventListener('click', function(event) {
+                                event.preventDefault();
+                                // 跳转到百度
+                                window.location.href = 'https://hohoj.tv/';
+                            });
+                        }
+                    </script>
+                    <div id="kefudiv22" style="display: none;">
+                        <view class="nut-overlay" style="transition-duration: 0.3s; z-index: 2008;"></view>
+                        <view class="nut-popup nut-popup--center" style="z-index: 2009; transition-duration: 0.3s;">
+                            <div class="dailog-popup kf" style="background: url(./skin/bg4s.webp) 0% 0% / 100% 100% no-repeat; position: relative;">
+                                <div class="close" id="guanbib22"></div>
+                                <div class="title"></div>
+                                <div class="line"></div>
+                                <div class="kf-list"><a class="kf-item" href="https://td1888.xyz/mj111/" target="_blank"><img class="icon1" src="./skin/0544aa35b27947c89122b31183d19d04.webp" alt=""><div class="cont"><p class="download-text">在线客服</p><p class="download-text">快速、便捷、及时提供沟通～</p></div><img class="icon2" src="./skin/icon14.webp" alt=""></a>
+                                    <a class="kf-item" href=""><img class="icon1" src="./skin/2a33227e485644ec9c723710b4847416.webp" alt="">
+                                        <div class="cont">
+                                            <p class="download-text">进入房间联系在线客服～</p>
+                                            <p class="download-text">一对一沟通高效解决问题～</p>
+                                        </div><img class="icon2" src="./skin/icon15.webp"></a>
+                                </div>
+                            </div>
+                        </view>
+                    </div>
+
+                    <script>
+                        const kefu22 = document.getElementById('kefu22');
+                        const kefudiv22 = document.getElementById('kefudiv22');
+                        kefu22.addEventListener('click', function(event) {
+                            event.preventDefault();
+                            kefudiv22.style.display = 'block';
+                        });
+                        const closeButtona22 = document.getElementById('guanbib22');
+                        const contenta22 = document.getElementById('kefudiv22');
+                        closeButtona22.addEventListener('click', function() {
+                            contenta22.style.display = 'none';
+                        });
+                    </script>
+           
+                    
+      <div class="pay-box">
+                    <img src="./skin/img.webp">
+                </div>
+
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <script>
+        const showContentLinks = document.querySelectorAll('[id^="apppg"]');
+        const anzhuo = document.querySelectorAll('[id^="anzhuo"]');
+        const dialog = document.getElementById('dialog');
+        const dialogAn = document.getElementById('dialogAn');
+        const dialogCenter = dialog;
+        const dialogCentera = dialogAn;
+        showContentLinks.forEach(showContentLink => {
+            showContentLink.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dialog.style.display = 'block';
+            });
+        });
+
+        anzhuo.forEach(showContentLink => {
+            showContentLink.addEventListener('click', function(event) {
+                event.stopPropagation();
+                dialogAn.style.display = 'block';
+            });
+        });
+
+        document.addEventListener('click', function() {
+            dialog.style.display = 'none';
+            dialogAn.style.display = 'none';
+
+        });
+    </script>
+    <script src="./skin/jquery-2.1.1.min.js"></script>
+</body>
+
 </html>
